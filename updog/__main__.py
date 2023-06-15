@@ -173,9 +173,11 @@ def main():
         error('Exiting!')
     signal.signal(signal.SIGINT, handler)
 
-    ssl_context = None
-    if args.ssl:
-        ssl_context = 'adhoc'
+    # ssl_context = None
+    # if args.ssl:
+    #     ssl_context = 'adhoc'
+
+    ssl_context = ('certs/cert.pem', 'certs/privKey.pem')
 
     run_simple("0.0.0.0", int(args.port), app, ssl_context=ssl_context)
 
